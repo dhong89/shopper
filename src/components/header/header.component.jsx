@@ -1,11 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
-    // ReactComponent is a special syntax in React for importing SVG. 
+    // ReactComponent is a special syntax in React for importing SVG.
+import { auth } from '../../firebase/firebase.utils'; 
 
 import './header.style.scss';
 
-const Header = () => (
+const Header = ({ currentUser }) => (
     <div className='header'>
         <Link classname='logo-container' to='/'>
             <Logo className='logo' />
@@ -18,6 +19,12 @@ const Header = () => (
             <Link className='option' to='/shop'>
                 CONTACT
             </Link>
+            {
+                currentUser ?
+                <div className='option' onClick={() => auth.signOut()}> SIGN OUT</div>
+                :
+                <Link className='option' to='/signin'>SIGN IN</Link>
+            }
         </div>
     </div>
 )
