@@ -20,13 +20,14 @@ class App extends React.Component {
   unsubscribeFromAuth = null
 
   componentDidMount(){ //onAUthStateChanged allows current user to persist given by firebase. 
-    this.unsbcribeFromAuth = auth.onAuthStateChanged(async user => {
-      createUserProfileDocument(user);
+    this.unsubscribeFromAuth = auth.onAuthStateChanged( user => {
+      // createUserProfileDocument(user);
+      this.setState({currentUser: user})
     })
   }
 
   componentWillUnmount(){
-    this.unsubscribeFromAutha();
+    this.unsubscribeFromAuth();
   }
   
   render () {
