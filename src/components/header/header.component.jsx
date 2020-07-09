@@ -4,6 +4,9 @@ import { ReactComponent as Logo } from '../../assets/crown.svg';
     // ReactComponent is a special syntax in React for importing SVG.
 import { auth } from '../../firebase/firebase.utils'; 
 
+import CartIcon  from '../cart-icon/cart-icon.component'
+import CartDropdown from '../cart-dropdown/cart-dropdown.component';
+
 import { connect } from 'react-redux';
 
 
@@ -30,7 +33,11 @@ const Header = ({ currentUser }) => (
           SIGN IN
         </Link>
       )}
+
+      <CartIcon/>
     </div>
+
+    <CartDropdown/>
   </div>
 );
 
