@@ -7,6 +7,10 @@ import { auth } from '../../firebase/firebase.utils';
 import CartIcon  from '../cart-icon/cart-icon.component'
 import CartDropdown from '../cart-dropdown/cart-dropdown.component';
 
+import { createStructuredSelector } from 'reselect';
+import { selectCartHidden } from "../../redux/cart/cart.selectors.js";
+import { selectCurrentUser } from "../../redux/user/user.selectors.js";
+
 import { connect } from 'react-redux';
 
 
@@ -43,10 +47,11 @@ const Header = ({ currentUser, hidden }) => (
 );
 
 
-//state comes from the root reducer. Need to decompose to only pass in what the component needs. 
-const mapStateToProps = ({user: {currentUser}, cart:{hidden}}) => ({
-    currentUser,
-    hidden
-})
+//state comes from the root reducer. Need to decompose to only pass in what the component needs.
+//crreateStructuredSelector automatically passes our state to reselect. Used when you are fetching multiple slices of state. 
+const mapStateToProps = createStructuredSelector ({
+  currentUser: selectCurrentUser,
+  hidden: selectCartHidden
+});
 
 export default connect(mapStateToProps)(Header); 

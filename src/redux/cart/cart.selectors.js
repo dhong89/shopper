@@ -1,3 +1,5 @@
+//Selectors are used to memoization so that our MSTP and MDTP does not continuously run whenever another state get updated. 
+
 import { createSelector } from 'reselect';
 
 const selectCart = state => state.cart;
@@ -13,3 +15,8 @@ export const selectCartItemsCount = createSelector(
     0
     )
 )
+
+export const selectCartHidden = createSelector(
+    [selectCart],
+    (cart) => cart.hidden
+    );
