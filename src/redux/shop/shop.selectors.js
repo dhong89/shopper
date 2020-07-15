@@ -22,3 +22,10 @@ export const selectCollection = collectionUrlParam =>
     collections => collections.find( collection => collection.id === COLLECTION_ID_MATCH[collectionUrlParam])
   )
 
+
+
+// export const selectCollection = (collectionUrlParam) =>
+//   createSelector([selectCollections], 
+//     (collections) => collections[collectionUrlParam]
+//     );
+
