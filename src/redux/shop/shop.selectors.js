@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import memoize from "lodash.memoize";
+// import memoize from "lodash.memoize";
 
 const COLLECTION_ID_MATCH ={
   hats: 1,
