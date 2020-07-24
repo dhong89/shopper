@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
     // ReactComponent is a special syntax in React for importing SVG.
 import { auth } from '../../firebase/firebase.utils'; 
@@ -15,7 +15,7 @@ import { connect } from 'react-redux';
 
 
 // import './header.style.scss';
-import {HeaderContainer, LogoContainer, OptionsContainer, OptionLink, OptionDiv} from './header.styles';
+import { HeaderContainer, LogoContainer, OptionsContainer, OptionLink, OptionDiv} from './header.styles';
 
 
 const Header = ({ currentUser, hidden }) => (
