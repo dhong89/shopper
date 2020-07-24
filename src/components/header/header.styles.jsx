@@ -15,6 +15,7 @@ export const HeaderContainer = styled.div`
   margin-bottom: 25px;
 `
 
+// (Link) allows styled components to style Links
 export const LogoContainer = styled(Link)`
     height: 100%;
     width: 70px;
