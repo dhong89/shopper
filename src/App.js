@@ -26,16 +26,16 @@ class App extends React.Component {
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       // createUserProfileDocument(user);
       // this.setState({currentUser: user})
-      // if(userAuth){
-      //   const userRef = await createUserProfileDocument(userAuth)
+      if(userAuth){
+        const userRef = await createUserProfileDocument(userAuth)
 
-      //   userRef.onSnapshot( snapshot => {
-      //     setCurrentUser({
-      //         id: snapshot.id,
-      //         ...snapshot.data()
-      //     })
-      //   })
-      // }
+        userRef.onSnapshot( snapshot => {
+          setCurrentUser({
+              id: snapshot.id,
+              ...snapshot.data()
+          })
+        })
+      }
       setCurrentUser(userAuth)
       addCollectionAndDocuments('collections', collectionsArray);
     })
