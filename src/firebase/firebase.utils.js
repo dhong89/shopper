@@ -40,26 +40,26 @@ export const createUserProfileDocument = async( userAuth, additionalData ) => {
   return userRef;
 }
 
-// export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
-//   const collectionRef = firestore.collection(collectionKey);
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+  const collectionRef = firestore.collection(collectionKey);
   
-//   const batch = firestore.batch();
+  const batch = firestore.batch();
 
-//   objectsToAdd.forEach( (object) => {
-//     const newDocRef = collectionRef.doc();
-//     batch.set(newDocRef, object);
-//   })
+  objectsToAdd.forEach( (object) => {
+    const newDocRef = collectionRef.doc();
+    batch.set(newDocRef, object);
+  })
 
-//   return await batch.commit();
-// }
+  return await batch.commit();
+}
 
-// firebase.initializeApp(config);
+firebase.initializeApp(config);
 
-// export const auth = firebase.auth();
-// export const firestore = firebase.firestore();
+export const auth = firebase.auth();
+export const firestore = firebase.firestore();
 
-// const provider = new firebase.auth.GoogleAuthProvider();
-// provider.setCustomParameters({ prompt: "select_account" });
-// export const signInWithGoogle = () => auth.signInWithPopup(provider);
+const provider = new firebase.auth.GoogleAuthProvider();
+provider.setCustomParameters({ prompt: "select_account" });
+export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
-// export default firebase;
+export default firebase;
