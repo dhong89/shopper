@@ -27,9 +27,9 @@ const Header = ({ currentUser, hidden }) => (
       <OptionLink to="/shop">
         SHOP
       </OptionLink>
-      <Link to="https://dhong89.github.io/">
+      {/*<OptionLink to="https://dhong89.github.io">
         CONTACT
-      </Link>
+        </OptionLink>*/}
       {currentUser ? (
         <OptionDiv onClick={() => auth.signOut()}>
           SIGN OUT
