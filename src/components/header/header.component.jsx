@@ -1,5 +1,5 @@
 import React from 'react'
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../../assets/crown.svg';
     // ReactComponent is a special syntax in React for importing SVG.
 import { auth } from '../../firebase/firebase.utils'; 
@@ -27,9 +27,9 @@ const Header = ({ currentUser, hidden }) => (
       <OptionLink to="/shop">
         SHOP
       </OptionLink>
-      <OptionLink to="https://dhong89.github.io/">
+      <Link to="https://dhong89.github.io/">
         CONTACT
-      </OptionLink>
+      </Link>
       {currentUser ? (
         <OptionDiv onClick={() => auth.signOut()}>
           SIGN OUT
