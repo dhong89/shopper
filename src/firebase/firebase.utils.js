@@ -53,6 +53,8 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
   return await batch.commit();
 }
 
+
+
 firebase.initializeApp(config);
 
 export const auth = firebase.auth();
