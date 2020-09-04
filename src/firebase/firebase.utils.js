@@ -66,6 +66,10 @@ export const convertCollectionsSnapshotToMap = (collections) => {
   })
 } 
 
+transformedCollection.reduce( (accumulator, collection) => {
+  accumulator[collection.title.toLowerCase()] = collection;
+})
+
 console.log(convertCollectionsSnapshotToMap)
 
 firebase.initializeApp(config);
