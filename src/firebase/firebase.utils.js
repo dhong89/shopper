@@ -64,13 +64,13 @@ export const convertCollectionsSnapshotToMap = (collections) => {
       items
     }
   })
+
+  return transformedCollection.reduce((accumulator, collection) => {
+    accumulator[collection.title.toLowerCase()] = collection;
+    return accumulator;
+  }, {});
 } 
 
-transformedCollection.reduce( (accumulator, collection) => {
-  accumulator[collection.title.toLowerCase()] = collection;
-})
-
-console.log(convertCollectionsSnapshotToMap)
 
 firebase.initializeApp(config);
 
