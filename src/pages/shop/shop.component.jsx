@@ -1,9 +1,10 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import { connect } from 'react-redux'
 
 import CollectionsOverview from "../../components/collections-overview/collections-overview.component";
 import CollectionPage from "../collection/collection.component";
-
+import { updateCollections } from '../../redux/shop/shop.actions.js';
 
 import { firestore, convertCollectionsSnapshotToMap } from '../../firebase/firebase.utils'
 
@@ -21,11 +22,12 @@ class ShopPage extends React.Component {
   unsubscribeFromSnapshot = null;
 
   componentDidMount(){
+    const { updateCollections } = this.props;
     const collectionRef = firestore.collection('collection')
 
     collectionRef.onSnapshot( async snapshot => {
       const collectionsMap = convertCollectionsSnapshotToMap(snapshot)
-      console.log(collectionsMap)
+     updateCollections(collectionsMap);
     } )
   }
   
@@ -38,7 +40,12 @@ class ShopPage extends React.Component {
     </div>
     )
   }
-
 }
 
-export default ShopPage;
+
+const mapDispatchToprops = dispatch => ({
+  updateCollections: collectionsMap => 
+  dispatch(updateCollections(collectionsMap))
+})
+
+export default connect (null, mapDispatchToprops)(ShopPage);
